@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои доски</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boards.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">SAYTEC</h2>
+        <nav class="navigation">
+            <a href="index.html">Главная</a>
+            <a href="404.html">О нас</a>
+            <a href="#">Мои доски</a>
+            <a href="404.html">Контакты</a>
+            <button class="btnLogin" onclick="location.href='auth.html'">Войти</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <button class="new-board-btn" onclick="document.getElementById('boardModal').style.display='flex'">
+                <ion-icon name="add-circle"></ion-icon>
+                Новая доска
+            </button>
+            
+            <div class="boards-list">
+                <h3>Мои доски</h3>
+                <div class="board-item active" onclick="location.href='board.html'">
+                    <ion-icon name="document-text"></ion-icon>
+                    <span>Проект №1</span>
+                </div>
+                <div class="board-item" onclick="location.href='board.html'">
+                    <ion-icon name="document-text"></ion-icon>
+                    <span>Личные задачи</span>
+                </div>
+                <div class="board-item" onclick="location.href='board.html'">
+                    <ion-icon name="document-text"></ion-icon>
+                    <span>Рабочие заметки</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1 class="page-title">Мои доски</h1>
+            
+            <div class="boards-grid">
+                <div class="board-card" onclick="location.href='board.html'">
+                    <div class="board-card-header">
+                        <h3>Проект №1</h3>
+                        <div class="board-actions">
+                            <button class="icon-btn"><ion-icon name="ellipsis-vertical"></ion-icon></button>
+                        </div>
+                    </div>
+                    <div class="board-card-content">
+                        <p>Доска для управления проектом</p>
+                        <div class="board-stats">
+                            <span><ion-icon name="list"></ion-icon> 3 списка</span>
+                            <span><ion-icon name="checkmark-circle"></ion-icon> 5 задач</span>
+                        </div>
+                    </div>
+                    <div class="board-card-footer">
+                        <small>Обновлено: 20.01.2026</small>
+                    </div>
+                </div>
+
+                <div class="board-card" onclick="location.href='board.html'">
+                    <div class="board-card-header">
+                        <h3>Личные задачи</h3>
+                        <div class="board-actions">
+                            <button class="icon-btn"><ion-icon name="ellipsis-vertical"></ion-icon></button>
+                        </div>
+                    </div>
+                    <div class="board-card-content">
+                        <p>Ежедневные задачи и напоминания</p>
+                        <div class="board-stats">
+                            <span><ion-icon name="list"></ion-icon> 2 списка</span>
+                            <span><ion-icon name="checkmark-circle"></ion-icon> 8 задач</span>
+                        </div>
+                    </div>
+                    <div class="board-card-footer">
+                        <small>Обновлено: 20.01.2026</small>
+                    </div>
+                </div>
+
+                <div class="board-card" onclick="location.href='board.html'">
+                    <div class="board-card-header">
+                        <h3>Рабочие заметки</h3>
+                        <div class="board-actions">
+                            <button class="icon-btn"><ion-icon name="ellipsis-vertical"></ion-icon></button>
+                        </div>
+                    </div>
+                    <div class="board-card-content">
+                        <p>Идеи и заметки по работе</p>
+                        <div class="board-stats">
+                            <span><ion-icon name="list"></ion-icon> 1 список</span>
+                            <span><ion-icon name="checkmark-circle"></ion-icon> 3 задачи</span>
+                        </div>
+                    </div>
+                    <div class="board-card-footer">
+                        <small>Обновлено: 20.01.2026</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="boardModal">
+        <div class="modal-content">
+            <span class="icon-close" onclick="document.getElementById('boardModal').style.display='none'">
+                <ion-icon name="close"></ion-icon>
+            </span>
+            
+            <div class="form-box">
+                <h2>Новая доска</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="document-text"></ion-icon>
+                        </span>
+                        <input type="text" required>
+                        <label>Название доски</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="pencil"></ion-icon>
+                        </span>
+                        <input type="text">
+                        <label>Описание (необязательно)</label>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" 
+                                onclick="document.getElementById('boardModal').style.display='none'">
+                            Отмена
+                        </button>
+                        <button type="submit" class="btn">Создать доску</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

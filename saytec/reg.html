@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <a href="index.html"><ion-icon name="close"></ion-icon></span></a>
+
+
+        <div class="form-box register">
+            <h2>Регистрация</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon></span>
+                    <input type="text" class="email" required>
+                    <label>Имя пользователя</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon></span>
+                    <input type="email" class="email" required>
+                    <label>Почта</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" class="password" required>
+                    <label>Пароль</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" class="password" required>
+                    <label>Повторите пароль</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Согласен с правилами использования сервиса</label>
+                </div>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+                <div class="login-register">
+                    <p>Уже есть аккаунт? <a href="auth.html" class="register-link">Войти</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

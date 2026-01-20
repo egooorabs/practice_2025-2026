@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект №1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boards.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">SAYTEC</h2>
+        <nav class="navigation">
+            <a href="index.html">Главная</a>
+            <a href="404.html">О нас</a>
+            <a href="#">Мои доски</a>
+            <a href="404.html">Контакты</a>
+            <button class="btnLogin" onclick="location.href='auth.html'">Войти</button>
+        </nav>
+    </header>
+
+    <div class="board-page">
+        <div class="board-header">
+            <h1 class="board-title">Проект №1</h1>
+            <button class="add-list-btn" onclick="document.getElementById('listModal').style.display='flex'">
+                <ion-icon name="add"></ion-icon>
+                Добавить список
+            </button>
+        </div>
+
+        <div class="lists-container">
+            <div class="list">
+                <div class="list-header">
+                    <h3 class="list-title">Надо выполнить</h3>
+                    <button class="close-list-btn" onclick="this.parentElement.parentElement.style.display='none'">
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Создать дизайн главной страницы</div>
+                </div>
+                
+                <div class="card">
+                    <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Написать техническое задание</div>
+                </div>
+                
+                <div class="card">
+                    <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Подготовить презентацию для клиента</div>
+                </div>
+                
+                <div class="add-card" onclick="addCard(this)">+ Добавить карточку</div>
+            </div>
+
+ 
+            <div class="list">
+                <div class="list-header">
+                    <h3 class="list-title">В процессе</h3>
+                    <button class="close-list-btn" onclick="this.parentElement.parentElement.style.display='none'">
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Разработка API</div>
+                </div>
+                
+                <div class="card">
+                    <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Тестирование функционала</div>
+                </div>
+                
+                <div class="add-card" onclick="addCard(this)">+ Добавить карточку</div>
+            </div>
+
+            <div class="list">
+                <div class="list-header">
+                    <h3 class="list-title">Выполнено</h3>
+                    <button class="close-list-btn" onclick="this.parentElement.parentElement.style.display='none'">
+                    </button>
+                </div>
+                
+                <div class="card completed">
+                    <input type="checkbox" class="card-checkbox" checked onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Исследование рынка</div>
+                </div>
+                
+                <div class="card completed">
+                    <input type="checkbox" class="card-checkbox" checked onclick="this.parentElement.classList.toggle('completed')">
+                    <div class="card-content">Создание прототипа</div>
+                </div>
+                
+                <div class="add-card" onclick="addCard(this)">+ Добавить карточку</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-overlay" id="listModal">
+        <div class="modal-content">
+            <span class="icon-close" onclick="document.getElementById('listModal').style.display='none'">
+                <ion-icon name="close"></ion-icon>
+            </span>
+            
+            <div class="form-box">
+                <h2>Новый список</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="list"></ion-icon>
+                        </span>
+                        <input type="text" required>
+                        <label>Название списка</label>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" 
+                                onclick="document.getElementById('listModal').style.display='none'">
+                            Отмена
+                        </button>
+                        <button type="button" class="btn" 
+                                onclick="createNewList(); document.getElementById('listModal').style.display='none'">
+                            Создать список
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script>
+
+        function addCard(element) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <input type="checkbox" class="card-checkbox" onclick="this.parentElement.classList.toggle('completed')">
+                <div class="card-content" contenteditable="true">Новая задача</div>
+            `;
+            
+            element.parentElement.insertBefore(card, element);
+            card.querySelector('.card-content').focus();
+        }
+        
+        function createNewList() {
+            const listName = document.querySelector('#listModal input').value || 'Новый список';
+            const listsContainer = document.querySelector('.lists-container');
+            
+            const list = document.createElement('div');
+            list.className = 'list';
+            list.innerHTML = `
+                <div class="list-header">
+                    <h3 class="list-title">${listName}</h3>
+                    <button class="close-list-btn" onclick="this.parentElement.parentElement.style.display='none'">
+                    </button>
+                </div>
+                <div class="add-card" onclick="addCard(this)">+ Добавить карточку</div>
+            `;
+            
+            listsContainer.appendChild(list);
+        }
+        
+        document.querySelectorAll('.card').forEach(card => {
+            card.setAttribute('draggable', 'true');
+            
+            card.addEventListener('dragstart', function(e) {
+                this.style.opacity = '0.5';
+            });
+            
+            card.addEventListener('dragend', function() {
+                this.style.opacity = '1';
+            });
+        });
+        
+        document.querySelectorAll('.list').forEach(list => {
+            list.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+            
+            list.addEventListener('dragleave', function() {
+                this.style.background = '';
+            });
+            
+            list.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.background = '';
+                
+                const addCardBtn = this.querySelector('.add-card');
+                if (addCardBtn) {
+                    const draggingCard = document.querySelector('[draggable].card[style*="opacity: 0.5"]');
+                    if (draggingCard) {
+                        this.insertBefore(draggingCard, addCardBtn);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
